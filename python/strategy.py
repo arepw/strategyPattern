@@ -12,7 +12,9 @@ class Strategy(ABC):
 class DataFilter(Strategy):
     def __init__(self, more_than: int = 10):
         self.__more_than = more_than
-
+        
+    ''' Numbers exceeding the specified value will be added to the list
+    default is 10'''
     def get_data(self, source_data: List[int]) -> List[int]:
         output = list()
         for line in source_data:
@@ -51,7 +53,7 @@ class Context:
 
 
 if __name__ == '__main__':
-    context = Context(DataFilter(), 'input.txt')
+    context = Context(DataFilter(), './input.txt')
     print('Filter strategy')
     context.print_data()
 
